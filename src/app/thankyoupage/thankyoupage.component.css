@@ -1,0 +1,952 @@
+/* thankyoupage.component.css */
+.asp-rcm-wrapper {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 97vh;
+    background: white;
+    /* padding: 20px; */
+  }
+  
+  .content-wrapper {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+  
+  .logo {
+    width: 180px;
+    height: auto;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 650px;
+    background-color: white;
+    border-radius: 18px;
+    padding: 0 0 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+
+  
+  .image-container {
+    width: 100%;
+    overflow: hidden;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    /* margin-bottom: 25px; */
+    
+
+  }
+  
+  .image-container img {
+    width: 90%;
+    display: block;
+    object-fit: cover;
+    padding: 30px;
+  }
+  
+  .card-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 0 25px; */
+  }
+  
+  .heading {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    /* margin-bottom: 15px; */
+  }
+  
+  .subheading {
+    font-size: 18px;
+    color: #666;
+    /* margin-bottom: 30px; */
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .action-button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 15px;
+    border: 1px solid  #98A2B3;
+    border-radius: 10px;
+    background-color: white;
+    color: #1D2939;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #f7f7f7;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+  
+  .action-button svg {
+    /* margin-bottom: 15px; */
+    fill: none;
+    stroke: #444;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  
+  .action-button-text {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .email-deck-text {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  /* Modal styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .modal-container {
+    width: 90%;
+    max-width: 450px;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: modal-slide-in 0.3s ease;
+  }
+  
+  @keyframes modal-slide-in {
+    from {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .modal-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .greeting {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  
+  .modal-description {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+  
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    background-color: #e6f9f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .success-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .success-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  
+  .info-box {
+    display: flex;
+    align-items: center;
+    background-color: #f5f7f9;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #eaedf0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+  }
+  
+  .info-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: #555;
+    fill: none;
+    stroke-width: 2;
+  }
+  
+  .info-details {
+    flex: 1;
+  }
+  
+  .info-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 4px;
+  }
+  
+  .info-subtitle {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 12px 10px;
+    margin-bottom: 24px;
+    text-align: left;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .info-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: normal;
+  }
+  
+  .info-value {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    text-align: right;
+  }
+  
+  .primary-button {
+    width: 100%;
+    background-color: #0f6cbd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .primary-button:hover {
+    background-color: #0d5da9;
+  }
+  
+  .primary-button:disabled {
+    background-color: #b3cce6;
+    cursor: not-allowed;
+  }
+  
+  /* Form styles */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  .input-container {
+    position: relative;
+    padding: 10px;
+    width: 384px;
+  }
+  
+  .datepicker-container {
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  input[type="date"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  input[type="date"]:focus {
+    border-color: #0d6efd;
+  }
+  
+  .input-container input,
+  .input-container select {
+    width: 100%;
+    /* padding: 12px 36px 12px 16px; */
+    border: 1px solid #d9d9d9;
+    /* border-radius: 8px; */
+    font-size: 15px;
+    padding: 10px;
+    color: #333;
+    background-color: white;
+    appearance: none;
+  }
+  
+  .input-container input::placeholder,
+  .input-container select::placeholder {
+    color: #aaa;
+  }
+  
+  .input-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    stroke: #777;
+    fill: none;
+    stroke-width: 2;
+    pointer-events: none;
+  }
+  
+  .chevron {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .heading {
+      font-size: 24px;
+    }
+    
+    .subheading {
+      font-size: 16px;
+    }
+    
+    .action-buttons {
+      flex-direction: column;
+    }
+    
+    .action-button {
+      padding: 20px 15px;
+    }
+    
+    .modal-container {
+      width: 95%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo {
+      width: 150px;
+    }
+    
+    .card {
+      padding: 0 0 20px;
+    }
+    
+    .heading {
+      font-size: 22px;
+    }
+    
+    .subheading {
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .action-button {
+      padding: 15px 10px;
+    }
+    
+    .action-button-text {
+      font-size: 13px;
+    }
+    
+    .modal-header h3 {
+      font-size: 16px;
+    }
+    
+    .greeting {
+      font-size: 18px;
+    }
+    
+    .modal-description {
+      font-size: 14px;
+    }
+    
+    .info-grid {
+      grid-template-columns: 100px 1fr;
+    }
+    
+    .primary-button {
+      padding: 12px;
+      font-size: 15px;
+    }
+  }
+
+
+  /* Added animations for the thank you page */
+
+/* Enhance existing animation */
+@keyframes modal-slide-in {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Logo entrance animation */
+@keyframes logo-entrance {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.logo {
+  animation: logo-entrance 0.8s ease-out forwards;
+}
+
+/* Card entrance animation */
+@keyframes card-entrance {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.card {
+  animation: card-entrance 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Image zoom and fade in */
+@keyframes image-reveal {
+  0% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.image-container img {
+  animation: image-reveal 1s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+/* Text fade-in animations */
+@keyframes text-fade-in {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.heading {
+  animation: text-fade-in 0.7s ease-out 0.8s forwards;
+  opacity: 0;
+}
+
+.subheading {
+  animation: text-fade-in 0.7s ease-out 1s forwards;
+  opacity: 0;
+}
+
+/* Action buttons entrance animation */
+@keyframes button-entrance {
+  0% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.action-buttons {
+  opacity: 0;
+  animation: button-entrance 0.7s ease-out 1.2s forwards;
+}
+
+/* Individual button animations with staggered delay */
+.action-button:nth-child(1) {
+  animation: button-entrance 0.7s ease-out 1.3s forwards;
+  opacity: 0;
+}
+
+.action-button:nth-child(2) {
+  animation: button-entrance 0.7s ease-out 1.4s forwards;
+  opacity: 0;
+}
+
+.action-button:nth-child(3) {
+  animation: button-entrance 0.7s ease-out 1.5s forwards;
+  opacity: 0;
+}
+
+/* Enhanced hover effect for action buttons */
+.action-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.action-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12);
+}
+
+.action-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 80%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+}
+
+.action-button:hover:before {
+  transform: scale(2);
+  opacity: 0.3;
+}
+
+.action-button svg {
+  transition: transform 0.3s ease;
+}
+
+.action-button:hover svg {
+  transform: scale(1.15);
+}
+
+/* Modal animation enhancements */
+.modal-overlay {
+  backdrop-filter: blur(3px);
+  transition: backdrop-filter 0.5s ease;
+}
+
+.modal-container {
+  transform: scale(0.95);
+  opacity: 0;
+  animation: modal-entrance 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes modal-entrance {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Success icon animation */
+@keyframes success-icon-reveal {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success-icon {
+  animation: success-icon-reveal 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s forwards;
+  transform: scale(0);
+}
+
+.success-icon svg path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: draw-check 1s ease-in-out 0.5s forwards;
+}
+
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Form element animations */
+.form-group {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: form-element-entrance 0.5s ease-out forwards;
+}
+
+.form-group:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.form-group:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+@keyframes form-element-entrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input focus animations */
+.input-container input:focus,
+.input-container select:focus {
+  border-color: #0f6cbd;
+  box-shadow: 0 0 0 3px rgba(15, 108, 189, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Primary button animation */
+.primary-button {
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.4s ease;
+}
+
+.primary-button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.primary-button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+/* Info box subtle hover effect */
+.info-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Background subtle animation */
+@keyframes subtle-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  background: linear-gradient(120deg, #ffffff, #f8f9fa, #f0f4f8, #ffffff);
+  background-size: 400% 400%;
+  animation: subtle-gradient 15s ease infinite;
+}
+
+
+
+/* Form improvements - Schedule Call Modal */
+.modal-content {
+  padding: 24px;
+}
+
+/* Form groups with better spacing and alignment */
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Input container positioning fixes */
+.input-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Consistent styling for all form inputs */
+.input-container input,
+.input-container select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #333;
+  background-color: white;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Date input specific styles */
+input[type="date"] {
+  padding-right: 36px; /* Space for calendar icon */
+  cursor: pointer;
+}
+
+/* Fix for date picker to make the entire field clickable */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Dropdown icon positioning */
+.input-container .input-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Focus states for better usability */
+.input-container input:focus,
+.input-container select:focus {
+  border-color: #0f6cbd;
+  box-shadow: 0 0 0 3px rgba(15, 108, 189, 0.2);
+  outline: none;
+}
+
+/* Placeholder color */
+.input-container input::placeholder,
+.input-container select::placeholder {
+  color: #aaa;
+}
+
+/* iPad specific styles - fix for large dropdowns */
+@media only screen 
+and (min-device-width: 768px) 
+and (max-device-width: 1024px) {
+  .modal-container {
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  .input-container {
+    padding: 0;
+  }
+  
+  /* Specifically target dropdowns on iPad */
+  .input-container select {
+    font-size: 14px;
+    padding: 10px 14px;
+    height: 42px; /* Fixed height for dropdowns on iPad */
+    width: 100%; /* Ensure it respects container width */
+    max-width: 100%; /* Prevent overflow */
+    appearance: none; /* Remove default styling */
+    -webkit-appearance: none; /* Safari */
+    -moz-appearance: none; /* Firefox */
+  }
+  
+  /* Better icon positioning for iPad */
+  .input-container .input-icon {
+    right: 10px;
+  }
+  
+  /* Ensure datepicker has consistent height */
+  input[type="date"] {
+    height: 42px;
+  }
+}
+
+/* Standard responsive adjustments */
+@media (max-width: 768px) {
+  .modal-container {
+    width: 95%;
+    max-width: 500px;
+  }
+  
+  .input-container {
+    padding: 0;
+  }
+  
+  .input-container input,
+  .input-container select {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+}
+
+/* Additional tablet-specific adjustments for non-iPad tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .modal-container {
+    max-width: 550px;
+  }
+  
+  .input-container select {
+    height: 44px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 16px;
+  }
+  
+  .greeting {
+    font-size: 18px;
+  }
+  
+  .modal-description {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .form-group label {
+    font-size: 13px;
+  }
+  
+  .primary-button {
+    padding: 12px;
+  }
+}

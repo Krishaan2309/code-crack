@@ -1,0 +1,194 @@
+<!-- thankyoupage.component.html -->
+<div class="asp-rcm-wrapper">
+    <div class="container">
+      <div class="content-wrapper">
+        <img src="assets/asprcmLogo.svg" alt="ASP-RCM Solutions Logo" class="logo">
+        
+        <div class="card">
+          <div class="image-container">
+            <img src="assets/thankyou.png" alt="ASP-RCM Solutions Logo" class="logo">
+          </div>
+          
+          <div class="card-content">
+            <h2 class="heading">Thanks for unlocking care</h2>
+            <!-- <p class="subheading">{{ userName }}, you're making a real difference in healthcare</p> -->
+            <p class="subheading">Thanks for helping people like just like you receive the Medical services they need</p>
+            
+            <div class="action-buttons">
+              <button class="action-button" (click)="openBoothModal()">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <path d="M22 2L11 13"></path>
+                  <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                </svg>
+                <span class="action-button-text">Visit Our Booth</span>
+              </button>
+              
+              <button class="action-button" (click)="openDeckModal()">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <path d="M22 7L12 14L2 7"></path>
+                </svg>
+                <span class="action-button-text">Email me more info about</span>
+                <span class="email-deck-text">ASP-RCM</span>
+              </button>
+              
+              <button class="action-button" (click)="openCallModal()">
+                <svg width="28" height="28" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span class="action-button-text">Schedule a call</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Modals -->
+    <!-- Visit Booth Modal -->
+    <div class="modal-overlay" *ngIf="showBoothModal" (click)="closeModals($event)">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Visit Our Booth</h3>
+          <button class="close-button" (click)="closeBooth()">×</button>
+        </div>
+        <div class="modal-content">
+          <div class="greeting">Got a minute?</div>
+          <p class="modal-description"> We’ve got ideas that can reshape your workflow - join us at the booth!</p>
+          
+          <div class="info-box">
+            <div class="info-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M22 2L11 13"></path>
+                <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+              </svg>
+            </div>
+            <div class="info-details">
+              <div class="info-title">Booth #545</div>
+              <div class="info-subtitle">Hyatt Regency East Tower, Chicago river walk</div>
+            </div>
+          </div>
+          
+          <div class="info-grid">
+            <div class="info-label">Open Hours</div>
+            <div class="info-value">8:00 AM - 5:00 PM</div>
+            <div class="info-label">On-site contact</div>
+            <div class="info-value">+1 (469)-393-0083</div>
+          </div>
+          
+          <button class="primary-button" (click)="closeBooth()">Done</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Email Deck Modal -->
+    <div class="modal-overlay" *ngIf="showDeckModal" (click)="closeModals($event)">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>ASP-RCM Deck</h3>
+          <button class="close-button" (click)="closeDeck()">×</button>
+        </div>
+        <div class="modal-content text-center">
+          <div class="success-icon">
+            <img src="assets/check-circle.svg" alt="check-circle" class="logo">
+            
+          </div>
+          <h4 class="success-title">Your request has been successfully received</h4>
+          <p class="modal-description">We've received your request and will be emailing the deck to you shortly</p>
+          
+          <button class="primary-button" (click)="closeDeck()">Done</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Schedule Call Modal - Initial -->
+    <!-- Schedule Call Modal - Initial -->
+<div class="modal-overlay" *ngIf="showCallModal && !showCallConfirmation" (click)="closeModals($event)">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h3>Schedule a Call</h3>
+      <button class="close-button" (click)="closeCall()">×</button>
+    </div>
+    <div class="modal-content">
+      <div class="greeting">Hi {{ myFormValue?.name }}!</div>
+      <p class="modal-description">We're looking forward to discussing how ASP can help your organization. Please select a date and time that works for you.</p>
+      
+      <form (ngSubmit)="submitCallSchedule()" [formGroup]="callForm">
+        <div class="form-group">
+          <label for="date-picker">Select a Date</label>
+          <div class="input-container">
+            <input 
+              id="date-picker"
+              type="date" 
+              formControlName="date" 
+              [(ngModel)]="selectedDate" 
+              (change)="OnDateSelected()"
+            >
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="time-select">Select a Time</label>
+          <div class="input-container">
+            <select id="time-select" formControlName="time">
+              <option value="" disabled selected>Select a time slot</option>
+              <option *ngFor="let time of timeSlots" [value]="time">{{ time }}</option>
+            </select>
+            <svg class="input-icon chevron" width="20" height="20" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="timezone-select">Select a TimeZone</label>
+          <div class="input-container">
+            <select id="timezone-select" formControlName="timezone">
+              <option value="" disabled selected>Select a time zone</option>
+              <option *ngFor="let timezone of timeZones" [value]="timezone">{{ timezone }}</option>
+            </select>
+            <svg class="input-icon chevron" width="20" height="20" viewBox="0 0 24 24">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+        
+        <button type="submit" class="primary-button" [disabled]="callForm.invalid">Schedule Call</button>
+      </form>
+    </div>
+  </div>
+</div>
+    
+    <!-- Schedule Call Modal - Confirmation -->
+    <div class="modal-overlay" *ngIf="showCallConfirmation" (click)="closeModals($event)">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Schedule a Call</h3>
+          <button class="close-button" (click)="closeCallConfirmation()">×</button>
+        </div>
+        <div class="modal-content text-center">
+          <div class="success-icon">
+            <img src="assets/check-circle.svg" alt="check-circle" class="logo">
+          </div>
+          <h4 class="success-title">We've got your availability</h4>
+          <p class="modal-description">We'll give you a call at the scheduled time. Looking forward to connecting!</p>
+          
+          <div class="info-grid full-width">
+            <div class="info-label">Date</div>
+            <div class="info-value">{{ selectedDate }}</div>
+            <div class="info-label">Time Zone</div>
+            <div class="info-value">{{ selectedTimeZone }}</div>
+            <div class="info-label">Time</div>
+            <div class="info-value">{{ selectedTime }}</div>
+            <div class="info-label">E-mail</div>
+            <div class="info-value">{{ myFormValue?.email }}</div>
+          </div>
+          
+          <button class="primary-button" (click)="closeCallConfirmation()">Done</button>
+        </div>
+      </div>
+    </div>
+  </div>

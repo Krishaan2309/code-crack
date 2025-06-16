@@ -1,0 +1,24 @@
+
+<div class="asp-rcm-wrapper">
+  <div class="container">
+    <div class="card">
+      <div class="card-content">
+        <div class="document-icon">
+          <img src="assets/decoding.gif" alt="Decoding Animation" class="gif-placeholder" />
+        </div>
+
+        <h2 class="heading">Decoding denials in real-time</h2>
+        <p class="subheading">Like we do everyday</p>
+
+        <div class="button-container">
+          <button
+            *ngFor="let btn of buttons"
+            [@slideFadeUp]="btn.state"
+            class="code-button"
+          >
+            {{ btn.code }}
+          </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,244 @@
+
+  /* Global Styles and CSS Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .asprcm-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: clamp(10px, 5vw, 40px);
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  /* Logo Styles */
+  .logo-container {
+    margin-bottom: clamp(10px, 4vw, 30px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logo {
+    width: clamp(100px, 30vw, 180px);
+    height: auto;
+    max-width: 100%;
+  }
+  
+  /* Card Styles */
+  .card {
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+    border-radius: clamp(15px, 4vw, 25px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: clamp(20px, 5vw, 35px) clamp(15px, 4vw, 30px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  /* Code Grid Styles */
+  .code-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(10px, 3vw, 20px);
+    width: 100%;
+    margin-bottom: clamp(20px, 5vw, 35px);
+  }
+  
+  .code-box {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: clamp(8px, 2vw, 12px);
+    padding: clamp(15px, 4vw, 25px) clamp(10px, 3vw, 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .code-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #ccc;
+  }
+  
+  .code-box:active {
+    transform: translateY(0);
+  }
+  
+  .code-box.selected {
+    background-color: rgba(196, 255, 219, 0.3);
+    border: 2px solid #47c279;
+    box-shadow: 0 5px 15px rgba(71, 194, 121, 0.2);
+  }
+  
+  .lock-icon {
+    width: clamp(30px, 8vw, 50px);
+    height: auto;
+    margin-bottom: clamp(8px, 2vw, 15px);
+  }
+  
+  .code-text {
+    font-size: clamp(14px, 3.5vw, 18px);
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Instruction Styles */
+  .instruction-container {
+    text-align: center;
+    width: 100%;
+    margin-bottom: clamp(20px, 5vw, 30px);
+  }
+  
+  .instruction-heading {
+    font-size: clamp(16px, 4vw, 22px);
+    font-weight: bold;
+    color: #333;
+    line-height: 1.4;
+  }
+  
+  /* Success Message Styles */
+  .success-message {
+    width: 100%;
+    background-color: rgba(196, 255, 219, 0.5);
+    border: 1px solid #47c279;
+    border-radius: clamp(5px, 1.5vw, 8px);
+    padding: clamp(12px, 3vw, 18px);
+    text-align: center;
+    margin-bottom: clamp(20px, 5vw, 30px);
+  }
+  
+  .success-message p {
+    color: #116f3a;
+    font-size: clamp(14px, 3.5vw, 18px);
+    font-weight: 500;
+  }
+  
+  /* Button Styles */
+  .button-container {
+    width: 100%;
+  }
+  
+  .impact-button {
+    width: 100%;
+    background-color: #0e6eab;
+    color: white;
+    border: none;
+    border-radius: clamp(5px, 1.5vw, 8px);
+    padding: clamp(12px, 3vw, 18px);
+    font-size: clamp(14px, 3.5vw, 18px);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .impact-button:hover {
+    background-color: #0a5a8e;
+  }
+  
+  .impact-button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Media Queries for Different Device Sizes */
+  @media screen and (max-width: 480px) {
+    .code-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .code-box {
+      padding: clamp(12px, 3vw, 20px) clamp(8px, 2vw, 15px);
+    }
+    
+    .lock-icon {
+      width: clamp(25px, 7vw, 40px);
+    }
+    
+    .code-text {
+      font-size: clamp(12px, 3vw, 16px);
+    }
+    
+    .instruction-heading {
+      font-size: clamp(14px, 3.5vw, 18px);
+    }
+  }
+  
+  @media screen and (max-width: 350px) {
+    .code-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    .card {
+      padding: 30px 35px;
+    }
+    
+    .code-box {
+      padding: 25px 20px;
+    }
+    
+    .success-message {
+      padding: 15px;
+    }
+  }
+  
+  /* Accessibility Improvements */
+  .code-box:focus,
+  .impact-button:focus {
+    outline: 3px solid rgba(14, 110, 171, 0.5);
+    outline-offset: 2px;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+  
+  /* For landscape orientation on small devices */
+  @media screen and (orientation: landscape) and (max-height: 500px) {
+    .asprcm-container {
+      padding: 10px;
+    }
+    
+    .logo-container {
+      margin-bottom: 10px;
+    }
+    
+    .card {
+      padding: 15px;
+    }
+    
+    .code-grid {
+      margin-bottom: 15px;
+    }
+    
+    .instruction-container {
+      margin-bottom: 15px;
+    }
+    
+    .success-message {
+      margin-bottom: 15px;
+      padding: 10px;
+    }
+  }
+  

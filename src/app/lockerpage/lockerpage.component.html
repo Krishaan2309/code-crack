@@ -1,0 +1,126 @@
+<div class="asprcm-container">
+  <div class="logo-container">  
+    <img src="assets/asprcmLogo.svg" alt="ASP-RCM Solutions Logo" class="logo">
+  </div>
+  
+  <div class="main-content-wrapper">
+    <!-- Doctor image container -->
+    <div class="doctor-image-container">
+      <img src="assets/crackedCodeImage.png" alt="Doctor showing healthcare barriers" class="doctor-image">
+    </div>
+    
+    <!-- Card code -->
+    <div class="card">
+      <div class="code-grid">
+        <div  class="code-box" (click)="onClickcode('CO-197')" [ngClass]="{'selected': currentCodeClicked?.code=='CO-197' && finalSubmitDone}">
+          <img *ngIf="currentCodeClicked?.code=='CO-197' && finalSubmitDone" src="assets/unlock-icon.svg" alt="Unlock Icon" class="lock-icon">
+          <img *ngIf="currentCodeClicked?.code!='CO-197' || !currentCodeClicked && finalSubmitDone==false" src="assets/lock-icon.svg" alt="Lock Icon" class="lock-icon">
+          <p class="code-text">CO-197</p>
+        </div>
+        <div class="code-box" (click)="onClickcode('PR-49')" [ngClass]="{'selected': currentCodeClicked?.code=='PR-49' && finalSubmitDone}">
+          <img *ngIf="currentCodeClicked?.code=='PR-49' && finalSubmitDone" src="assets/unlock-icon.svg" alt="Unlock Icon" class="lock-icon">
+          <img *ngIf="currentCodeClicked?.code!='PR-49' || !currentCodeClicked && finalSubmitDone==false" src="assets/lock-icon.svg" alt="Lock Icon" class="lock-icon">
+          <p class="code-text">PR-49</p>
+        </div>
+        <div class="code-box" (click)="onClickcode('CO-16')" [ngClass]="{'selected': currentCodeClicked?.code=='CO-16' && finalSubmitDone}">
+          <img *ngIf="currentCodeClicked?.code=='CO-16' && finalSubmitDone" src="assets/unlock-icon.svg" alt="Unlock Icon" class="lock-icon">
+          <img *ngIf="currentCodeClicked?.code!='CO-16' || !currentCodeClicked && finalSubmitDone==false" src="assets/lock-icon.svg" alt="Lock Icon" class="lock-icon">
+          <p class="code-text">CO-16</p>
+        </div>
+        <div class="code-box" (click)="onClickcode('CO-18')" [ngClass]="{'selected': currentCodeClicked?.code=='CO-18' && finalSubmitDone}">
+          <img *ngIf="currentCodeClicked?.code=='CO-18' && finalSubmitDone" src="assets/unlock-icon.svg" alt="Unlock Icon" class="lock-icon">
+          <img *ngIf="currentCodeClicked?.code!='CO-18' || !currentCodeClicked && finalSubmitDone==false" src="assets/lock-icon.svg" alt="Lock Icon" class="lock-icon">
+          <p class="code-text">CO-18</p>
+        </div>
+        <div class="code-box" (click)="onClickcode('CO-109')" [ngClass]="{'selected': currentCodeClicked?.code=='CO-109' && finalSubmitDone}">
+          <img *ngIf="currentCodeClicked?.code=='CO-109' && finalSubmitDone" src="assets/unlock-icon.svg" alt="Unlock Icon" class="lock-icon">
+          <img *ngIf="currentCodeClicked?.code!='CO-109' || !currentCodeClicked && finalSubmitDone==false" src="assets/lock-icon.svg" alt="Lock Icon" class="lock-icon">
+          <p class="code-text">CO-109</p>
+        </div>
+        <div class="code-box" (click)="onClickcode('CO-50')" [ngClass]="{'selected': currentCodeClicked?.code=='CO-50' && finalSubmitDone}">
+          <img *ngIf="currentCodeClicked?.code=='CO-50' && finalSubmitDone" src="assets/unlock-icon.svg" alt="Unlock Icon" class="lock-icon">
+          <img *ngIf="currentCodeClicked?.code!='CO-50' || !currentCodeClicked && finalSubmitDone==false" src="assets/lock-icon.svg" alt="Lock Icon" class="lock-icon">
+          <p class="code-text">CO-50</p>
+        </div>
+      </div>
+    
+      <div class="instruction-container" *ngIf="finalSubmitDone">
+        <h2 class="instruction-heading">These aren't just codes - they are barriers to care</h2>
+      </div>
+    
+      <div class="success-message" *ngIf="finalSubmitDone">
+        <p>Correctly identified!</p>
+      </div>
+
+      <div class="instruction-container" *ngIf="!finalSubmitDone">
+        <h2 class="instruction-heading">Behind every code, someone's waiting</h2>
+        <p class="instruction-text">Pick a code to crack the barrier</p>
+      </div>
+    
+      <div class="button-container">
+        <button [disabled]="!finalSubmitDone" class="impact-button" (click)="onrevealMyImpactClicked()">Reveal My Impact</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="popupOpen" class="popup-container">
+  <div class="popup-content">
+    <div class="popup-header">
+      <h2>Unlock Your Expertise</h2>
+      <button class="close-button" (click)="closePopUp()">&times;</button>
+    </div>
+    
+    <div class="code-box">
+      <span>{{currentCodeClicked.code}}: {{currentCodeClicked.description}}</span>
+    </div>
+    
+    <div class="question-section">
+      <h3>{{currentCodeClicked.question}}</h3>
+
+      <div class="option" [ngClass]="{'selected': option==currentCodeClicked.option1}" (click)="optionSelected(currentCodeClicked.option1)">
+        <div class="radio-circle" [ngClass]="{'selected': option==currentCodeClicked.option1}"></div>
+        <span>{{currentCodeClicked.option1}}</span>
+      </div>
+      
+      <div class="option" [ngClass]="{'selected': option==currentCodeClicked.option2}" (click)="optionSelected(currentCodeClicked.option2)">
+        <div class="radio-circle" [ngClass]="{'selected': option==currentCodeClicked.option2}"></div>
+        <span>{{currentCodeClicked.option2}}</span>
+      </div>
+      
+      <div class="option" [ngClass]="{'selected': option==currentCodeClicked.option3}" (click)="optionSelected(currentCodeClicked.option3)">
+        <div class="radio-circle" [ngClass]="{'selected': option==currentCodeClicked.option3}"></div>
+        <span>{{currentCodeClicked.option3}}</span>
+      </div>
+    </div>
+    
+    <div *ngIf="!correctAns && option && onSubmitBool" class="feedback-message incorrect">
+      <span>Let's keep going - {{wrongCount}} more opportunities ahead</span>
+    </div>
+
+    <div *ngIf="correctAns && option && onSubmitBool" id="feedback-correct" class="feedback-message correct">
+      <span>Great Job! You have got it right</span>
+    </div>
+    
+    <div *ngIf="correctAns && option && onSubmitBool" class="insight-box">
+      <h4>Business Insight</h4>
+      <p>{{currentCodeClicked.businessInsight}}</p>
+    </div>
+    
+    <div *ngIf="correctAns && option && onSubmitBool" class="insight-box">
+      <h4>ASP's Role</h4>
+      <p>{{currentCodeClicked.aspRole}}</p>
+    </div> 
+    
+    <div class="footer">
+      <div class="opportunities">
+        <span>Opportunities:</span>
+        <div class="dot" [ngClass]="{'filled':wrongCount==3 || wrongCount==2 || wrongCount==1}"></div>
+        <div class="dot" [ngClass]="{'filled':wrongCount==3 || wrongCount==2}"></div>
+        <div class="dot" [ngClass]="{'filled':wrongCount==3}"></div>
+      </div>
+      <button class="continue-button" *ngIf="!correctAns" [disabled]="!option" (click)="OnSubmitAnswer()">Submit Answer <span class="arrow">→</span></button>
+      <button class="continue-button" *ngIf="correctAns" [disabled]="!option" (click)="OnSubmitCorrectAnswer()">Continue <span class="arrow">→</span></button>
+    </div>
+  </div>
+</div>

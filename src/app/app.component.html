@@ -1,0 +1,9 @@
+<app-landingpage *ngIf="!clickHereBool" (clickHereMoreDetailsClicked)="clickHere($event)"></app-landingpage>
+<app-welcomepage *ngIf="!isNextClicked && clickHereBool" (onNextButtonChanged)="onNext($event)"></app-welcomepage>
+<app-lockerpage *ngIf="isNextClicked && !isRevealMyImpactClicked" (revealMyImpact)="onrevealMyImpactClicked($event)"></app-lockerpage>
+<app-getdetailspage *ngIf="isRevealMyImpactClicked && !formValue" (revealClicked)="onRevealClicked($event)"></app-getdetailspage>
+<app-decodingpage *ngIf="formValue && showDecodingPage" (initialized)="onChildInitialized()"></app-decodingpage>
+<app-codecrackedpage *ngIf="!showDecodingPage && !continueClicked" [myFormValue]="formValue" (continueClicked)="onContinueClicked($event)"></app-codecrackedpage>
+<app-thankyoupage *ngIf="continueClicked" [myFormValue]="formValue"></app-thankyoupage>
+
+<!-- <app-thankyoupage [myFormValue]="formValue"></app-thankyoupage> -->
