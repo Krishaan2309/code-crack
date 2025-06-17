@@ -17,6 +17,7 @@ export class WelcomepageComponent {
     this.onNextButtonChanged.emit(true)
     // this.isNextClicked = !this.isNextClicked
     // console.log(this.isNextClicked)
+    
   }
 
   onBack(){

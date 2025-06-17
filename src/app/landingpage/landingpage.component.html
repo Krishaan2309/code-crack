@@ -1,4 +1,4 @@
-<div class="asp-rcm-container">
+<!-- <div class="asp-rcm-container">
     <div class="logo-container">
       <img src="assets/asprcmLogo.svg" alt="ASP-RCM Solutions Logo" class="logo">
     </div>
@@ -13,7 +13,6 @@
         </div>
         
         <div class="services-grid-top">
-            <!-- Top row services -->
             <div class="service-box" data-index="0">
                 <div class="service-inner">
                     <img src="assets/1-01.png" alt="Credentialing Icon" class="service-icon">
@@ -76,7 +75,6 @@
         </div>
         
         <div class="services-grid-bottom">
-            <!-- Bottom row services -->
             <div class="service-box" data-index="6">
                 <div class="service-inner">
                     <img src="assets/1-07.png" alt="Billing Icon" class="service-icon">
@@ -135,9 +133,7 @@
             <span>Serving Clients across 40+ states</span>
         </div>
         
-        <div class="cta-button">
-          <button (click)="clickHere()">Ready to unlock your revenue</button>
-      </div>
+
     </div>
     
     <div class="separator"></div>
@@ -149,5 +145,24 @@
         <img src="assets/award1.png" alt="Award 2023" class="certification-img">
         <img src="assets/award2.png" alt="Award 2024" class="certification-img">
     </div>
-  </div>
+  </div> -->
   
+<div class="main-container">
+    <div class="video-container">
+            <video
+            #videoPlayer
+            class="intro-vid"
+            controls
+            muted
+            playsinline
+            (ended)="onVideoEnded()"
+        >
+            <source src="assets/cc_intro.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="cta-button">
+        <button  *ngIf="showButton" (click)="clickHere()">Click Here To Help!</button>
+      </div>
+    
+</div>

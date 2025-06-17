@@ -1,4 +1,3 @@
-
 .asp-rcm-container {
     max-width: 1200px;
     width: 100%;
@@ -402,14 +401,20 @@
     background-color: #0066b2;
     color: white;
     border: none;
-    border-radius: 5px;
-    padding: 15px 25px;
-    font-size: 16px;
+    width: auto;
+    border-radius: 0.25rem;
+    padding: 0.625rem;
+    color: var(--White, #FFF);
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 550;
+    letter-spacing: 0.5px;
+    line-height: 2rem; /* 133.333% */
     cursor: pointer;
-    font-weight: 500;
     display: flex;
+    justify-content: center;
     align-items: center;
-    position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 102, 178, 0.3);
@@ -446,7 +451,7 @@
 
 /* Button Text Animation */
 .cta-button button::after {
-    content: "→";
+    /* content: "→"; */
     margin-left: 10px;
     animation: bounceArrow 1s infinite;
     display: inline-block;
@@ -660,3 +665,50 @@
         }
     }
 }
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  /* Main container fills screen and centers video */
+  .main-container {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* Responsive video container */
+  .video-container {
+    max-width: fit-content;
+    height: 99vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Responsive video 
+  .intro-vid {
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+  }*/
+  
+  /* Button positioned center over video */
+  .cta-button {
+    position: fixed;
+    top: 45%;
+    left: 47%;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+  }
+  

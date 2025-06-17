@@ -21,32 +21,32 @@
 
 /* Logo Styles */
 .logo-container {
-  margin-bottom: clamp(10px, 4vw, 30px);
   width: 100%;
-  display: flex;
-  justify-content: center;
+  position: relative;
 }
 
 .logo {
-  width: clamp(100px, 30vw, 180px);
-  height: auto;
-  max-width: 100%;
+ width: 100%;
 }
 
-/* Card Styles */
+/* Card Styles - MODIFIED */
 .card {
-    width: 100%;
-    max-width: 600px;
-    background-color: white;
-    border-radius: clamp(15px, 4vw, 25px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    padding: clamp(20px, 5vw, 35px) clamp(15px, 4vw, 30px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.3s ease;
-  }
+  max-width: 34.25rem;
+  width: 90%;
+  border-radius: 1rem;
+  border: 2px solid var(--White, #FFF);
+  background: rgba(0, 0, 0, 0.42);
+  box-shadow: 0px 258px 72px 0px rgba(0, 0, 0, 0.00), 0px 165px 66px 0px rgba(0, 0, 0, 0.01), 0px 93px 56px 0px rgba(0, 0, 0, 0.05), 0px 41px 41px 0px rgba(0, 0, 0, 0.09), 0px 10px 23px 0px rgba(0, 0, 0, 0.10);
+  backdrop-filter: blur(12px);
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  margin: 0;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
 
 /* Form Header Styles */
 .form-header {
@@ -57,13 +57,13 @@
 .form-header h1 {
   font-size: clamp(20px, 5vw, 26px);
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
   margin-bottom: clamp(5px, 1.5vw, 10px);
 }
 
 .form-header p {
   font-size: clamp(14px, 3.5vw, 16px);
-  color: #666;
+  color: #ffffff;
 }
 
 /* Form Styles */
@@ -79,14 +79,14 @@
 .form-group label {
   display: block;
   font-size: clamp(14px, 3.5vw, 16px);
-  color: #555;
+  color: #ffffff;
   margin-bottom: clamp(5px, 1.5vw, 8px);
 }
 
 .form-input {
   width: 100%;
-  padding: clamp(10px, 3vw, 15px);
-  font-size: clamp(14px, 3.5vw, 16px);
+  /* padding: clamp(10px, 3vw, 15px); */
+  /* font-size: clamp(14px, 3.5vw, 16px); */
   border: 1px solid #ddd;
   border-radius: clamp(5px, 1.5vw, 8px);
   transition: border-color 0.3s;
@@ -218,7 +218,7 @@
 }
 
 small.error-message {
-  color: #dc3545; /* Bootstrap danger red */
+  color: #ffffff; /* Bootstrap danger red */
   font-size: 12px;
   margin-top: 4px;
   display: block;
@@ -311,19 +311,8 @@ small.error-message {
   animation: fadeIn 1s ease-out;
 }
 
-.logo-container {
-  animation: float 6s ease-in-out infinite;
-}
 
-.card {
-  animation: fadeIn 1.2s ease-out 0.3s both;
-  transition: all 0.4s ease;
-}
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
 
 .form-header h1 {
   animation: fadeIn 1s ease-out 0.5s both;

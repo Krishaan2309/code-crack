@@ -38,8 +38,12 @@ export class AppComponent {
   }
 
   clickHere(value){
-    this.clickHereBool = value
+    this.clickHereBool = value;
+
+    // ✅ Skip WelcomePage
+    this.isNextClicked = true;
   }
+
 
 }
 

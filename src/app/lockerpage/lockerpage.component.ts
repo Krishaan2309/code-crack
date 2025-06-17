@@ -11,6 +11,7 @@ export class LockerpageComponent {
   currentCodeClicked:any
   option:any
   correctAns:boolean
+  codeBox:boolean = true
   popupOpen:boolean = false
   onSubmitBool:boolean
   finalSubmitDone:boolean = false
@@ -30,6 +31,7 @@ export class LockerpageComponent {
     this.option = undefined
     this.correctAns = false
     this.onSubmitBool = false
+    this.codeBox = false
     console.log(this.currentCodeClicked)
 
   }
@@ -40,6 +42,7 @@ export class LockerpageComponent {
     this.option = undefined
     this.correctAns = false
     this.onSubmitBool = false
+    this.codeBox = true
     this.wrongCount = 3
     
   }
@@ -74,6 +77,7 @@ export class LockerpageComponent {
     this.popupOpen = false
     this.finalSubmitDone = true
     this.wrongCount= 3
+    this.codeBox= true
     console.log("Correct answer submited")
   }
 

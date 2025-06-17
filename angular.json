@@ -87,6 +87,7 @@
               "zone.js",
               "zone.js/testing"
             ],
+            
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
@@ -100,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
