@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lockerpage',
@@ -19,9 +20,10 @@ export class LockerpageComponent {
   @Output()
   revealMyImpact = new EventEmitter<boolean>
 
-
+  constructor(private router:Router){}
   onrevealMyImpactClicked(){
     this.revealMyImpact.emit(true)
+    this.router.navigate(["getDetails-page"])
   }
 
   onClickcode(code:string){

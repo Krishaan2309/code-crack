@@ -1,4 +1,4 @@
-<div class="asp-rcm-wrapper">
+<!-- <div class="asp-rcm-wrapper">
 
     <div class="container">
       <div class="content-wrapper">
@@ -15,7 +15,7 @@
             <p class="subheading">That's how we turn denials into second chances</p>
             
             <div class="badge">
-              <span class="badge-text">Impact Badge: <span class="badge-name">{{myFormValue.name}}</span></span>
+              <span class="badge-text">Impact Badge: <span class="badge-name">{{myFormValue?.name}}</span></span>
               <span class="verified">Verified</span>
             </div>
             
@@ -24,4 +24,17 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+<div class="video-wrapper">
+  <video src="assets/ccv_climax.mp4"
+         autoplay muted playsInline
+         class="background-video"
+         (ended)="onVideoEnded()">
+  </video>
+
+  <div class="popup-overlay" *ngIf="showOverlay">
+    <app-thankyoupage></app-thankyoupage>
   </div>
+</div>
+  

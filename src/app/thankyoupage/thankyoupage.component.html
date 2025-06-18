@@ -1,13 +1,13 @@
 <!-- thankyoupage.component.html -->
 <div class="asp-rcm-wrapper">
-    <div class="container">
+    <div class="container" *ngIf="!showBoothModal && !showDeckModal && !showCallModal && !showCallConfirmation">
       <div class="content-wrapper">
         <img src="assets/asprcmLogo.svg" alt="ASP-RCM Solutions Logo" class="logo">
         
         <div class="card">
-          <div class="image-container">
-            <img src="assets/thankyou.png" alt="ASP-RCM Solutions Logo" class="logo">
-          </div>
+          <!-- <div class="image-container">
+            <img src="assets/thankyou.png" alt="ASP-RCM Solutions Logo" class="logo"> -->
+          <!-- </div> -->
           
           <div class="card-content">
             <h2 class="heading">Thanks for unlocking care</h2>
@@ -59,6 +59,7 @@
           <div class="greeting">Got a minute?</div>
           <p class="modal-description"> We’ve got ideas that can reshape your workflow - join us at the booth!</p>
           
+        <div class="info-container">
           <div class="info-box">
             <div class="info-icon">
               <svg width="24" height="24" viewBox="0 0 24 24">
@@ -78,6 +79,7 @@
             <div class="info-label">On-site contact</div>
             <div class="info-value">+1 (469)-393-0083</div>
           </div>
+        </div>
           
           <button class="primary-button" (click)="closeBooth()">Done</button>
         </div>
@@ -118,8 +120,8 @@
       
       <form (ngSubmit)="submitCallSchedule()" [formGroup]="callForm">
         <div class="form-group">
-          <label for="date-picker">Select a Date</label>
-          <div class="input-container">
+          <label style="color: white;" for="date-picker">Select a Date</label>
+          <div class="input-container date-picker">
             <input 
               id="date-picker"
               type="date" 
@@ -130,8 +132,9 @@
           </div>
         </div>
         
+      <div class="time-timezone">
         <div class="form-group">
-          <label for="time-select">Select a Time</label>
+          <label style="color: white;" for="time-select">Select a Time</label>
           <div class="input-container">
             <select id="time-select" formControlName="time">
               <option value="" disabled selected>Select a time slot</option>
@@ -144,7 +147,7 @@
         </div>
 
         <div class="form-group">
-          <label for="timezone-select">Select a TimeZone</label>
+          <label style="color: white;" for="timezone-select">Select a TimeZone</label>
           <div class="input-container">
             <select id="timezone-select" formControlName="timezone">
               <option value="" disabled selected>Select a time zone</option>
@@ -155,12 +158,14 @@
             </svg>
           </div>
         </div>
+      </div>
         
         <button type="submit" class="primary-button" [disabled]="callForm.invalid">Schedule Call</button>
       </form>
     </div>
   </div>
 </div>
+
     
     <!-- Schedule Call Modal - Confirmation -->
     <div class="modal-overlay" *ngIf="showCallConfirmation" (click)="closeModals($event)">

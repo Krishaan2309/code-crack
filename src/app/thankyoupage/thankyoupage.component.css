@@ -1,18 +1,24 @@
 /* thankyoupage.component.css */
 .asp-rcm-wrapper {
     font-family: 'Arial', sans-serif;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.75) 100%);
   }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 97vh;
-    background: white;
-    /* padding: 20px; */
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+  .video-container{
+    position: relative;
+    height: auto;
   }
   
   .content-wrapper {
+    position: absolute;
     max-width: 1200px;
     width: 100%;
     display: flex;
@@ -29,10 +35,11 @@
   .card {
     width: 100%;
     max-width: 650px;
-    background-color: white;
-    border-radius: 18px;
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.24);
+    box-shadow: 0px 258px 72px 0px rgba(0, 0, 0, 0.00), 0px 165px 66px 0px rgba(0, 0, 0, 0.01), 0px 93px 56px 0px rgba(0, 0, 0, 0.05), 0px 41px 41px 0px rgba(0, 0, 0, 0.09), 0px 10px 23px 0px rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(3px);
     padding: 0 0 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,13 +71,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     /* padding: 0 25px; */
   }
   
   .heading {
     font-size: 28px;
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
     /* margin-bottom: 15px; */
   }
   
@@ -80,6 +88,10 @@
     /* margin-bottom: 30px; */
   }
   
+  .thank-img{
+    width: auto;
+  }
+
   .action-buttons {
     display: flex;
     justify-content: space-between;
@@ -95,9 +107,10 @@
     align-items: center;
     justify-content: center;
     padding: 25px 15px;
-    border: 1px solid  #98A2B3;
-    border-radius: 10px;
-    background-color: white;
+    border-radius: 0.5rem;
+    border: 1px solid var(--Gray-400, #98A2B3);
+    background: var(--White, #FFF);
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.25);
     color: #1D2939;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -147,10 +160,10 @@
   .modal-container {
     width: 90%;
     max-width: 450px;
-    background-color: white;
-    border-radius: 12px;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(6px);
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     animation: modal-slide-in 0.3s ease;
   }
   
@@ -170,13 +183,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 16px 20px;
-    border-bottom: 1px solid #eaeaea;
   }
   
   .modal-header h3 {
     font-size: 18px;
     font-weight: 600;
-    color: #333;
+    color: #ffffff;
     margin: 0;
   }
   
@@ -184,7 +196,7 @@
     background: none;
     border: none;
     font-size: 24px;
-    color: #666;
+    color: #fafafa;
     cursor: pointer;
     padding: 0;
     line-height: 1;
@@ -199,15 +211,17 @@
   }
   
   .greeting {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
-    color: #333;
+    color: #ffffff;
+    text-align: center;
     margin-bottom: 12px;
   }
   
   .modal-description {
     font-size: 15px;
-    color: #666;
+    text-align: center;
+    color: #ffffff;
     margin-bottom: 24px;
     line-height: 1.5;
   }
@@ -231,14 +245,13 @@
   .success-title {
     font-size: 18px;
     font-weight: 600;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 12px;
   }
   
   .info-box {
     display: flex;
     align-items: center;
-    background-color: #f5f7f9;
     border-radius: 10px;
     padding: 16px;
     margin-bottom: 20px;
@@ -263,33 +276,49 @@
     stroke-width: 2;
   }
   
+  .info-container{
+    background-color: white;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
   .info-details {
     flex: 1;
   }
   
   .info-title {
-    font-size: 16px;
+    color: var(--Gray-800, #1D2939);
+    /* Text md/Semibold */
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
     font-weight: 600;
-    color: #333;
     margin-bottom: 4px;
   }
   
   .info-subtitle {
-    font-size: 14px;
-    color: #666;
+    color: var(--Gray-800, #1D2939);
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
   }
   
   .info-grid {
     display: grid;
+    width: auto;
     grid-template-columns: 130px 1fr;
     gap: 12px 10px;
     margin-bottom: 24px;
     text-align: left;
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
   }
   
-  .full-width {
+  /* .full-width {
     width: 100%;
-  }
+  } */
   
   .info-label {
     font-size: 14px;
@@ -298,9 +327,11 @@
   }
   
   .info-value {
-    font-size: 14px;
-    color: #333;
-    font-weight: 500;
+    color: var(--Gray-800, #1D2939);
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
     text-align: right;
   }
   
@@ -330,20 +361,23 @@
   .form-group {
     margin-bottom: 20px;
   }
+
   
   .form-group label {
     display: block;
     font-size: 14px;
-    color: #555;
     margin-bottom: 8px;
   }
   
   .input-container {
     position: relative;
-    padding: 10px;
-    width: 384px;
+    /* padding: px;
+    width: 384px; */
   }
-  
+  #date-picker{
+    width: 91.5%;
+  }
+
   .datepicker-container {
     margin: 20px;
     font-family: Arial, sans-serif;
@@ -379,6 +413,11 @@
   .input-container select::placeholder {
     color: #aaa;
   }
+
+  .time-timezone{
+    display: flex;
+    gap: 0.5rem;
+  }
   
   .input-icon {
     position: absolute;
@@ -396,6 +435,10 @@
     stroke-linejoin: round;
   }
   
+  .form-group-container{
+    display: flex;
+  }
+
   /* Responsive styles */
   @media (max-width: 768px) {
     .heading {
@@ -553,6 +596,7 @@
 .subheading {
   animation: text-fade-in 0.7s ease-out 1s forwards;
   opacity: 0;
+  color: white;
 }
 
 /* Action buttons entrance animation */
@@ -628,11 +672,14 @@
 
 /* Modal animation enhancements */
 .modal-overlay {
-  backdrop-filter: blur(3px);
+  /* backdrop-filter: blur(3px); */
   transition: backdrop-filter 0.5s ease;
 }
 
 .modal-container {
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(6px);
   transform: scale(0.95);
   opacity: 0;
   animation: modal-entrance 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;

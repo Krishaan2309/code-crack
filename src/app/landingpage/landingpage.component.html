@@ -147,12 +147,11 @@
     </div>
   </div> -->
   
-<div class="main-container">
+<!-- <div class="main-container">
     <div class="video-container">
             <video
             #videoPlayer
             class="intro-vid"
-            controls
             muted
             playsinline
             (ended)="onVideoEnded()"
@@ -165,4 +164,78 @@
         <button  *ngIf="showButton" (click)="clickHere()">Click Here To Help!</button>
       </div>
     
+</div> -->
+
+<div class="video-background" [class.show-fallback]="!videoCanPlay" [class.user-interacted]="userInteracted" [class.video-ended]="videoEnded">
+  <!-- Video Element -->
+  <video
+    #backgroundVideo
+    [muted]="true"
+    [loop]="false"
+    [preload]="'metadata'"
+    [src]="videoSrc"
+    (loadedmetadata)="onVideoLoaded()"
+    (canplay)="onCanPlay()"
+    (error)="onVideoError($event)"
+    (play)="onVideoPlay()"
+    (pause)="onVideoPause()"
+    class="background-video">
+  </video>
+
+  <!-- Play Button Overlay (shown when autoplay fails) -->
+  <div class="play-overlay" *ngIf="showPlayButton && !videoEnded" (click)="onUserInteraction()">
+    <button class="play-button" aria-label="Play background video">
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <circle cx="40" cy="40" r="40" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+        <path d="M32 26L56 40L32 54V26Z" fill="rgba(255,255,255,0.8)"/>
+      </svg>
+    </button>
+    <p class="play-text">Click to play background video</p>
+  </div>
+
+  <!-- Help Button Overlay (shown after video ends) -->
+  <div class="help-overlay" *ngIf="showHelpButton" [@fadeInOut]>
+    <div class="help-content">
+      <!-- <h2 class="help-title">Need Help?</h2> -->
+      <button routerLink="locker-page" class="help-button" (click)="onHelpClick()" aria-label="Get help">
+        Click here to help me
+      </button>
+      <div class="countdown-container">
+        <div class="countdown-timer">
+          <div class="countdown-circle">
+            <svg width="60" height="60" class="countdown-svg">
+              <circle 
+                cx="30" 
+                cy="30" 
+                r="25" 
+                fill="none" 
+                stroke="rgba(255,255,255,0.3)" 
+                stroke-width="2">
+              </circle>
+              <circle 
+                cx="30" 
+                cy="30" 
+                r="25" 
+                fill="none" 
+                stroke="#ff6b6b" 
+                stroke-width="2" 
+                stroke-linecap="round"
+                [style.stroke-dasharray]="157"
+                [style.stroke-dashoffset]="countdownProgress"
+                class="countdown-progress"
+                style="transform: rotate(-90deg); transform-origin: center;">
+              </circle>
+            </svg>
+            <span class="countdown-text">{{ countdownSeconds }}</span>
+          </div>
+        </div>
+        <p class="refresh-text">Auto-refresh in {{ countdownSeconds }} seconds</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Overlay -->
+  <div class="content-overlay">
+    <ng-content></ng-content>
+  </div>
 </div>

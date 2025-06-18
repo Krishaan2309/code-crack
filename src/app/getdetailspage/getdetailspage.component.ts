@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SharedService } from '../shared.service';
 
 interface CountryCode {
   country: string;
@@ -39,7 +41,9 @@ export class GetdetailspageComponent implements OnInit {
     // { country: 'South Korea', code: '+82', flag: 'KR' }
   ];
   constructor(private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
+    private sharedService: SharedService,
   ) {}
 
   ngOnInit() {
@@ -93,7 +97,10 @@ export class GetdetailspageComponent implements OnInit {
         next: response => {
           console.log('POST Success:', response)
           this.formValue = response;
-          this.revealClicked.emit(this.formValue);
+          this.sharedService.formValue = response;
+          // this.revealClicked.emit(this.formValue);
+          this.router.navigate(['codecracked-page'], { state: { formData: this.formValue } });
+          
         },
         error: error => console.error('POST Error:', error)
       });

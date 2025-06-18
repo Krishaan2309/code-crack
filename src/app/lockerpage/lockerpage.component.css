@@ -129,16 +129,18 @@
 
 /* Main content wrapper - MODIFIED */
 .main-content-wrapper {
-  width: auto;
+  width: 100%;
 }
 
 /* Doctor image container - MODIFIED */
 .doctor-image-container {
   width: 100%;
+  height: auto;
   position: relative;
 }
 
 .doctor-image {
+ height: 99.5vh;
  width: 100%;
 }
 

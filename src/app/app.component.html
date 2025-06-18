@@ -1,9 +1,37 @@
-<app-landingpage *ngIf="!clickHereBool" (clickHereMoreDetailsClicked)="clickHere($event)"></app-landingpage>
-<app-welcomepage *ngIf="!isNextClicked && clickHereBool" (onNextButtonChanged)="onNext($event)"></app-welcomepage>
+<!-- <div class="main-container">
+    <div class="video-container">
+            <video
+            #videoPlayer
+            class="intro-vid"
+            muted
+            autoplay
+            playsinline
+            (ended)="onVideoEnded()"
+        >
+            <source src="assets/cc_intro.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="cta-button">
+        <button  *ngIf="showButton" (click)="clickHere($event)">Click Here To Help!</button>
+      </div>
+</div> -->
+
+<!-- <app-video-background (helpRequested)="onHelpRequested()"></app-video-background> -->
+
+
+
+
+<!-- <app-landingpage *ngIf="!clickHereBool" (clickHereMoreDetailsClicked)="clickHere($event)"></app-landingpage> -->
+<!-- <app-welcomepage *ngIf="!isNextClicked " (onNextButtonChanged)="onNext($event)"></app-welcomepage>
 <app-lockerpage *ngIf="isNextClicked && !isRevealMyImpactClicked" (revealMyImpact)="onrevealMyImpactClicked($event)"></app-lockerpage>
 <app-getdetailspage *ngIf="isRevealMyImpactClicked && !formValue" (revealClicked)="onRevealClicked($event)"></app-getdetailspage>
 <app-decodingpage *ngIf="formValue && showDecodingPage" (initialized)="onChildInitialized()"></app-decodingpage>
 <app-codecrackedpage *ngIf="!showDecodingPage && !continueClicked" [myFormValue]="formValue" (continueClicked)="onContinueClicked($event)"></app-codecrackedpage>
-<app-thankyoupage *ngIf="continueClicked" [myFormValue]="formValue"></app-thankyoupage>
+<app-thankyoupage *ngIf="continueClicked" [myFormValue]="formValue"></app-thankyoupage> -->
+<router-outlet></router-outlet>
+<!-- <app-lockerpage></app-lockerpage> -->
 
+<!-- <app-codecrackedpage></app-codecrackedpage> -->
+ <!-- <app-thankyoupage></app-thankyoupage> -->
 <!-- <app-thankyoupage [myFormValue]="formValue"></app-thankyoupage> -->

@@ -2,6 +2,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-thankyoupage',
@@ -17,9 +18,10 @@ export class ThankyoupageComponent implements OnInit {
 
   
 
-  ngOninit(){
-    console.log(this.myFormValue)
-  }
+  ngOnInit(){
+
+  this.myFormValue = this.sharedService.formValue;
+  console.log('Received form data:', this.myFormValue);  }
   
   // Image paths
   logoPath: string = 'assets/images/asp-rcm-logo.png';
@@ -79,7 +81,8 @@ export class ThankyoupageComponent implements OnInit {
     console.log(this.selectedDate)
   }
   constructor(private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private sharedService: SharedService
   ) {
     this.callForm = this.fb.group({
       date: ['', Validators.required],
@@ -89,9 +92,6 @@ export class ThankyoupageComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    // Initialize your component here
-  }
 
   // Modal control methods
   openBoothModal(): void {
