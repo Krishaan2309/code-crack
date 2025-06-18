@@ -58,11 +58,7 @@
         <button [disabled]="!finalSubmitDone" class="impact-button" (click)="onrevealMyImpactClicked()">Reveal My Impact</button>
       </div>
     </div>
-  </div>
-</div>
-
-<div *ngIf="popupOpen" class="popup-container">
-  <div class="popup-content">
+    <div  *ngIf="!codeBox" class="card">
     <div class="popup-header">
       <h2>Unlock Your Expertise</h2>
       <button class="close-button" (click)="closePopUp()">&times;</button>
@@ -120,4 +116,7 @@
       <button class="continue-button" *ngIf="correctAns" [disabled]="!option" (click)="OnSubmitCorrectAnswer()">Continue <span class="arrow">→</span></button>
     </div>
   </div>
+  </div>
+  <!-- </div> -->
 </div>
+
