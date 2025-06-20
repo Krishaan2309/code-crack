@@ -1,351 +1,16 @@
-.video-background {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      background-color: #000;
-    }
+/* Ensure no default margins/padding */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
 
-    .background-video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      object-fit: cover;
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
-
-    .fallback-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .show-fallback .background-video {
-      opacity: 0;
-    }
-
-    .show-fallback .fallback-background {
-      opacity: 1;
-    }
-
-    .play-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      background: rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      transition: opacity 0.3s ease;
-    }
-
-    .play-overlay:hover {
-      background: rgba(0, 0, 0, 0.4);
-    }
-
-    .play-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      margin-bottom: 1rem;
-    }
-
-    .play-button:hover {
-      transform: scale(1.1);
-    }
-
-    .play-text {
-      color: white;
-      font-size: 1.1rem;
-      margin: 0;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .content-overlay {
-      position: relative;
-      z-index: 5;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .content-overlay > * {
-      pointer-events: auto;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .background-video {
-        /* On mobile, prioritize performance */
-        min-width: 100%;
-        width: 100%;
-        height: auto;
-      }
-      
-      .play-button svg {
-        width: 60px;
-        height: 60px;
-      }
-      
-      .play-text {
-        font-size: 1rem;
-      }
-    }
-
-    /* Aspect ratio optimizations */
-    @media (aspect-ratio > 16/9) {
-      .background-video {
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    @media (aspect-ratio < 16/9) {
-      .background-video {
-        width: auto;
-        height: 100%;
-      }
-    }
-
-.video-background {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      background-color: #000;
-    }
-
-    .background-video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      object-fit: cover;
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
-
-    .fallback-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .show-fallback .background-video {
-      opacity: 0;
-    }
-
-    .show-fallback .fallback-background {
-      opacity: 1;
-    }
-
-    .play-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      background: rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-      transition: opacity 0.3s ease;
-    }
-
-    .play-overlay:hover {
-      background: rgba(0, 0, 0, 0.4);
-    }
-
-    .play-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-      margin-bottom: 1rem;
-    }
-
-    .play-button:hover {
-      transform: scale(1.1);
-    }
-
-    .play-text {
-      color: white;
-      font-size: 1.1rem;
-      margin: 0;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .content-overlay {
-      position: relative;
-      z-index: 5;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .content-overlay > * {
-      pointer-events: auto;
-    }
-
-    /* Help overlay styles */
-    .help-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 15;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(5px);
-    }
-
-    .help-content {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .help-button {
-      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-      color: white;
-      border: none;
-      padding: 1.5rem 3rem;
-      font-size: 1.4rem;
-      font-weight: bold;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    }
-
-    .help-button:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-    }
-
-    .help-button:active {
-      transform: translateY(-1px) scale(1.02);
-    }
-
-    .countdown-timer {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .countdown-circle {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .countdown-svg {
-      transform: rotate(-90deg);
-    }
-
-    .countdown-progress {
-      transition: stroke-dashoffset 0.1s linear;
-    }
-
-    .countdown-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .refresh-text {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 1.1rem;
-      margin: 0;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .background-video {
-        /* On mobile, prioritize performance */
-        min-width: 100%;
-        width: 100%;
-        height: auto;
-      }
-      
-      .play-button svg {
-        width: 60px;
-        height: 60px;
-      }
-      
-      .play-text {
-        font-size: 1rem;
-      }
-    }
-
-    /* Aspect ratio optimizations */
-    @media (aspect-ratio > 16/9) {
-      .background-video {
-        width: 100%;
-        height: auto;
-      }
-    }
-
-    @media (aspect-ratio < 16/9) {
-      .background-video {
-        width: auto;
-        height: 100%;
-      }
-    }
 /* Video Background Container */
 .video-background {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100dvh; /* Dynamic viewport height - fixes normal/fullscreen display */
   overflow: hidden;
   background: #000;
   display: flex;
@@ -353,23 +18,58 @@
   justify-content: center;
 }
 
+/* Fallback for browsers that don't support dvh */
+@supports not (height: 100dvh) {
+  .video-background {
+    height: 100vh;
+    height: calc(100vh - 50px); /* Approximate browser UI compensation */
+  }
+}
+
 /* Background Video */
 .background-video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Shows full video without cropping */
+  object-position: center;
   z-index: 1;
-  object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 /* Video ended state - keep video visible but frozen */
 .video-background.video-ended .background-video {
   pointer-events: none;
+}
+
+/* Fallback Background */
+.fallback-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.show-fallback .background-video {
+  opacity: 0;
+}
+
+.show-fallback .fallback-background {
+  opacity: 1;
+}
+
+.video-background.show-fallback {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
 /* Play Button Overlay */
@@ -389,12 +89,16 @@
   transition: opacity 0.3s ease;
 }
 
+.play-overlay:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
 .play-button {
   background: none;
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .play-button:hover {
@@ -403,13 +107,14 @@
 
 .play-text {
   color: white;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 500;
   text-align: center;
   margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* Help Button Overlay - Centered */
+/* Help Button Overlay */
 .help-overlay {
   position: absolute;
   top: 0;
@@ -421,7 +126,7 @@
   align-items: center;
   justify-content: center;
   z-index: 15;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(5px);
 }
 
 .help-content {
@@ -433,6 +138,10 @@
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .help-title {
@@ -447,26 +156,26 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  padding: 15px 30px;
-  font-size: 18px;
-  font-weight: 600;
+  padding: 1.5rem 3rem;
+  font-size: 1.4rem;
+  font-weight: bold;
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-  margin-bottom: 30px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
 }
 
 .help-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
 .help-button:active {
-  transform: translateY(0);
+  transform: translateY(-1px) scale(1.02);
 }
 
 /* Countdown Container */
@@ -480,15 +189,15 @@
 .countdown-timer {
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .countdown-circle {
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .countdown-svg {
@@ -496,7 +205,7 @@
 }
 
 .countdown-progress {
-  transition: stroke-dashoffset 1s linear;
+  transition: stroke-dashoffset 0.1s linear;
 }
 
 .countdown-text {
@@ -504,16 +213,17 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
-  font-weight: bold;
   color: #ff6b6b;
+  font-size: 1.5rem;
+  font-weight: bold;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .refresh-text {
   color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
+  font-size: 1.1rem;
   margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
@@ -521,24 +231,31 @@
 .content-overlay {
   position: relative;
   z-index: 5;
-  width: 100%;
   height: 100%;
+  pointer-events: none;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Fallback Background */
-.video-background.show-fallback {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.content-overlay > * {
+  pointer-events: auto;
 }
 
-.video-background.show-fallback .background-video {
-  opacity: 0;
-}
-
-/* Responsive Design */
+/* Mobile Responsive */
 @media (max-width: 768px) {
+  .video-background {
+    height: 100vh;
+    height: -webkit-fill-available; /* iOS Safari fix */
+  }
+  
+  .background-video {
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+  
   .help-content {
     margin: 20px;
     padding: 30px 20px;
@@ -556,8 +273,13 @@
     margin-bottom: 25px;
   }
   
+  .play-button svg {
+    width: 60px;
+    height: 60px;
+  }
+  
   .play-text {
-    font-size: 16px;
+    font-size: 1rem;
     padding: 0 20px;
   }
 }
@@ -585,5 +307,20 @@
   
   .refresh-text {
     font-size: 12px;
+  }
+}
+
+/* Aspect ratio optimizations */
+@media (aspect-ratio > 16/9) {
+  .background-video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (aspect-ratio < 16/9) {
+  .background-video {
+    width: auto;
+    height: 100%;
   }
 }
