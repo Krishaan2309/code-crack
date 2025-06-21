@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* Animation Keyframes - Keeping all animations uncanged */
+/* Animation Keyframes - Enhanced with scrollbar animations */
 @keyframes unlockPulse {
   0% { transform: scale(1); filter: brightness(1); }
   50% { transform: scale(1.15); filter: brightness(1.5) drop-shadow(0 0 12px rgba(71, 194, 121, 0.8)); }
@@ -76,6 +76,62 @@
   to { transform: translateX(0); opacity: 1; }
 }
 
+/* SUPER SCROLLBAR ANIMATIONS */
+@keyframes scrollbarGlow {
+  0% { 
+    background: linear-gradient(45deg, #1465A8, #47c279, #5d8cb3, #ff6b6b);
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+    box-shadow: 0 0 10px rgba(20, 101, 168, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  25% { 
+    background: linear-gradient(45deg, #47c279, #5d8cb3, #ff6b6b, #1465A8);
+    background-size: 300% 300%;
+    background-position: 25% 50%;
+    box-shadow: 0 0 15px rgba(71, 194, 121, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  50% { 
+    background: linear-gradient(45deg, #5d8cb3, #ff6b6b, #1465A8, #47c279);
+    background-size: 300% 300%;
+    background-position: 50% 50%;
+    box-shadow: 0 0 20px rgba(93, 140, 179, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.4);
+  }
+  75% { 
+    background: linear-gradient(45deg, #ff6b6b, #1465A8, #47c279, #5d8cb3);
+    background-size: 300% 300%;
+    background-position: 75% 50%;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  100% { 
+    background: linear-gradient(45deg, #1465A8, #47c279, #5d8cb3, #ff6b6b);
+    background-size: 300% 300%;
+    background-position: 100% 50%;
+    box-shadow: 0 0 10px rgba(20, 101, 168, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes scrollbarPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes trackShimmer {
+  0% { 
+    background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%);
+    background-size: 200% 100%;
+    background-position: -200% center;
+  }
+  100% { 
+    background-position: 200% center;
+  }
+}
+
+@keyframes thumbGlow {
+  0% { filter: brightness(1) drop-shadow(0 0 5px rgba(20, 101, 168, 0.5)); }
+  50% { filter: brightness(1.2) drop-shadow(0 0 15px rgba(71, 194, 121, 0.8)); }
+  100% { filter: brightness(1) drop-shadow(0 0 5px rgba(20, 101, 168, 0.5)); }
+}
+
 /* Create sparkle elements */
 .code-box.selected::before,
 .code-box.selected::after {
@@ -127,12 +183,12 @@
   max-width: 100%;
 }
 
-/* Main content wrapper - MODIFIED */
+/* Main content wrapper */
 .main-content-wrapper {
   width: 100%;
 }
 
-/* Doctor image container - MODIFIED */
+/* Doctor image container */
 .doctor-image-container {
   width: 100%;
   height: auto;
@@ -144,7 +200,85 @@
  width: 100%;
 }
 
-/* Card Styles - MODIFIED */
+/* SUPER SCROLLBAR STYLES FOR CARD */
+.card::-webkit-scrollbar {
+  width: 16px;
+}
+
+.card::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  margin: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::-webkit-scrollbar-track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.1) 0%, 
+    rgba(255,255,255,0.3) 50%, 
+    rgba(255,255,255,0.1) 100%);
+  background-size: 200% 100%;
+  animation: trackShimmer 3s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+.card::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #1465A8, #47c279, #5d8cb3, #ff6b6b);
+  background-size: 300% 300%;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 0 10px rgba(20, 101, 168, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.2),
+    0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: scrollbarGlow 4s ease-in-out infinite;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card::-webkit-scrollbar-thumb::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 0%;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.card::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #0d4a78, #2a9158, #4c7598, #e55555);
+  background-size: 300% 300%;
+  transform: scale(1.1);
+  box-shadow: 
+    0 0 20px rgba(71, 194, 121, 0.8),
+    inset 0 0 15px rgba(255, 255, 255, 0.4),
+    0 6px 20px rgba(0, 0, 0, 0.4);
+  animation: scrollbarGlow 2s ease-in-out infinite, scrollbarPulse 1s ease-in-out infinite;
+}
+
+.card::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(45deg, #0a3a5c, #1a6b40, #3a5d7a, #cc4444);
+  background-size: 300% 300%;
+  transform: scale(0.95);
+  box-shadow: 
+    0 0 25px rgba(20, 101, 168, 1),
+    inset 0 0 20px rgba(255, 255, 255, 0.5),
+    0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Styles with enhanced scrollbar */
 .card {
   max-width: 28.125rem;
   width: 90%;
@@ -163,6 +297,41 @@
   right: 10%;
   max-height: 600px;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: white;
+}
+
+/* Firefox scrollbar styling */
+.card {
+  scrollbar-width: thin;
+  scrollbar-color:white;
+}
+
+/* Popup content scrollbar */
+.popup-content::-webkit-scrollbar {
+  width: 14px;
+}
+
+.popup-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 6px;
+}
+
+.popup-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #1465A8, #47c279);
+  background-size: 200% 200%;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: scrollbarGlow 3s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.popup-content::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #0d4a78, #2a9158);
+  background-size: 200% 200%;
+  transform: scale(1.05);
+  animation: thumbGlow 2s ease-in-out infinite;
 }
 
 /* Code Grid Styles */
@@ -371,7 +540,6 @@
   opacity: 0;
   animation: fadeIn 0.3s ease-in-out forwards;
   padding: 15px;
-  
 }
 
 .popup-content {
@@ -389,10 +557,6 @@
   transform: scale(0.9);
   opacity: 0;
   animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 0.1s;
-}
-
-.popup-content::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
 }
 
 /* Enhanced elements in popup */
@@ -441,11 +605,10 @@
   font-size: 16px;
   font-weight: bold;
   color:white;
-color: var(--White, #FFF);
-font-family: Inter;
-font-size: 1rem;
-font-style: normal;
-
+  color: var(--White, #FFF);
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
   margin-bottom: 16px;
 }
 
@@ -637,6 +800,15 @@ font-style: normal;
   .instruction-heading {
     font-size: 20px;
   }
+  
+  /* Adjust scrollbar for smaller screens */
+  .card::-webkit-scrollbar {
+    width: 14px;
+  }
+  
+  .popup-content::-webkit-scrollbar {
+    width: 12px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -673,7 +845,17 @@ font-style: normal;
     width: 35px;
     margin-bottom: 8px;
   }
+  
+  /* Mobile scrollbar adjustments */
+  .card::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .popup-content::-webkit-scrollbar {
+    width: 10px;
+  }
 }
+
 
 @media screen and (max-width: 576px) {
   .main-content-wrapper {
@@ -723,6 +905,6 @@ font-style: normal;
 }
 
 
-.card::-webkit-scrollbar {
-  display: none;           /* Chrome, Safari */
-}
+/* .card::-webkit-scrollbar {
+  display: none;        
+} */

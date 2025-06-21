@@ -11,8 +11,8 @@ import { SharedService } from '../shared.service';
 })
 export class ThankyoupageComponent implements OnInit {
   // User information
-  userName: string = 'John';
-  userEmail: string = 'Johndavid@gmail.com';
+  // userName: string = 'John';
+  // userEmail: string = 'Johndavid@gmail.com';
   @Input()
   myFormValue:any
 
