@@ -49,9 +49,9 @@ export class GetdetailspageComponent implements OnInit {
   ngOnInit() {
     this.myForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      countryCode: ['+1', [Validators.required]], // Default to US (+1)
-      phoneNumber: ['', [Validators.required, Validators.pattern(/^\(\d{3}\) \d{3}-\d{4}$/)]]
+      email: ['', [Validators.email]],
+      countryCode: ['+1'], // Default to US (+1)
+      phoneNumber: ['', [Validators.pattern(/^\(\d{3}\) \d{3}-\d{4}$/)]]
     });
   }
 
